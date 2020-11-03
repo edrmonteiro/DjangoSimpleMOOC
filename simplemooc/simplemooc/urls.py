@@ -14,11 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from simplemooc.core.views import home, contact
 
 urlpatterns = [
-    path('', home, name='home'),
-    path('contact', contact, name='contact'),
+    path('', include('simplemooc.core.urls')),
     path('admin/', admin.site.urls),
 ]
