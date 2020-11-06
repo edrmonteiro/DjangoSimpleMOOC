@@ -18,6 +18,7 @@ from django.urls import path, include
 from simplemooc.core.views import home, contact
 
 urlpatterns = [
-    path('', include('simplemooc.core.urls')),
+    path('', include(('simplemooc.core.urls', 'core'), namespace='core')),
+    path('courses', include(('simplemooc.courses.urls', 'courses'), namespace='courses')),
     path('admin/', admin.site.urls),
 ]
