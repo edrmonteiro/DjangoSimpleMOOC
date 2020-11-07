@@ -28,6 +28,8 @@ class Course(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return 'courses/details/' + self.slug
 
     class Meta:
         verbose_name = "Course"

@@ -4,6 +4,6 @@ from simplemooc.courses.views import index, details
 
 urlpatterns = [
     path('', index, name='index'),
-    path('/<slug:slug>/', details, name='details'),
+    path('/details/<slug:slug>/', details, name='details'),
     # path(r'^(?P<key>\d+)/$', details, name='details'),
 ]
