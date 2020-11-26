@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import AuthenticationForm
 
 User = get_user_model()
 
@@ -36,3 +37,15 @@ class EditAccountForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'name']
+
+
+class BootstrapAuthenticationForm(AuthenticationForm):
+    """Authentication form which uses boostrap CSS."""
+    username = forms.CharField(max_length=254,
+                               widget=forms.TextInput({
+                                   'class': 'form-control',
+                                   'placeholder': 'User name'}))
+    password = forms.CharField(label=("Password"),
+                               widget=forms.PasswordInput({
+                                   'class': 'form-control',
+                                   'placeholder':'Password'}))
